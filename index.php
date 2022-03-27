@@ -7,7 +7,7 @@ session_start();?>
 <head>
     <?php include "_load.php";?>
     <?php include "validation.php";
-    include "/libs/classes/database.class.php";?>
+  //  include "/libs/classes/database.class.php";?>
 
 
     <?load_template("_head");?>

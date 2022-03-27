@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once "database.class.php";
+include_once "user.class.php";
 include_once "formValidation.class.php";
 // class validate
 // {
@@ -38,10 +38,9 @@ include_once "formValidation.class.php";
             $password_check->check_password_len($pass);
         }
         if (!isset($_SESSION['nameErr'])and!isset($_SESSION['emailErr'])and !isset($_SESSION['phoneErr'])and!isset($_SESSION['passErr'])and !isset($_SESSION['passwordErr']) and !isset($_SESSION['lenofpassword'])) {
-            $db=new db_connecten();
-            $db->add_information($name, $email, $phone, $pass); ?>
+            user::add_information($name, $email, $phone, $pass); ?>
 <h3>Signup succcess . Now you can <a href="/photogram1/login.php">Login here</a></h3>
 <?php
         } else {
-            header("location: /photogram1/index.php?");
+            header("location: /photogram1");
         }
