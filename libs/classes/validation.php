@@ -1,46 +1,46 @@
 <?php
-session_start();
+ session_start();
+include_once "database.class.php";
+ include_once "user.class.php";
+ include_once "require.class.php";
+//set a all datas
+ $pass=$_POST["password"];
+ $name=$_POST["name"];
+ $phone=$_POST["phone"];
+ $email=$_POST["email"];
+ 
+ //create a objects
+ $signup_validation= new checkInputs();
+ $login_validation=new checkInputs();
 
-include_once "user.class.php";
-include_once "formValidation.class.php";
-// class validate
-// {
-//     // check the form input field are not empty
-//     public function __construct()
-//     {
-        if ($_SERVER["REQUEST_METHOD"]=="POST") {
-            if (empty($_POST["name"])) {
-                $_SESSION['nameErr']="Name is required";
-            } else {
-                $name=$_POST["name"];
-            }
-            if (empty($_POST["email"])) {
-                $_SESSION['emailErr']="email is required";
-            } else {
-                $email=$_POST["email"];
-            }
-            if (empty($_POST["phone"])) {
-                $_SESSION['phoneErr']=" Phone is required";
-            } else {
-                $phone=$_POST["phone"];
-            }
-            if (empty($_POST["password"])) {
-                $_SESSION['passErr']="password is required";
-            } else {
-                $pass=$_POST["password"];
-            }
-        }
-        if ($pass!=$_POST['retype']) {
-            $_SESSION["passwordErr"]="enter the same password";
-            header("location: /photogram1/index.php?");
-        } else {
-            $password_check= new checkInputs();
-            $password_check->check_password_len($pass);
-        }
-        if (!isset($_SESSION['nameErr'])and!isset($_SESSION['emailErr'])and !isset($_SESSION['phoneErr'])and!isset($_SESSION['passErr'])and !isset($_SESSION['passwordErr']) and !isset($_SESSION['lenofpassword'])) {
-            user::add_information($name, $email, $phone, $pass); ?>
+$check_signup=false;
+
+//check all field are have a valuble data
+$signup_validation->check_name($_POST['name']);
+$signup_validation->check_email($_POST['email']);
+$signup_validation->check_phone($_POST['phone']);
+$signup_validation->check_password_len($_POST['password']);
+
+
+
+//send a data to database to signup
+ 
+     if (empty($_SESSION['nameErr'])and empty($_SESSION['emailErr'])and empty($_SESSION['phoneErr'])
+    and empty($_SESSION['passErr'])and empty($_SESSION['lengthErr'])) {
+         //check if already a user
+         $check=false;
+
+         if ($check==false) {
+             $result=user::check_already_signup($email);
+             print($result);
+             $check=true;
+         }
+
+         if ($check==false) {
+             user::add_information($name, $email, $phone, $pass)?>
 <h3>Signup succcess . Now you can <a href="/photogram1/login.php">Login here</a></h3>
 <?php
-        } else {
-            header("location: /photogram1");
-        }
+         }
+     } else {
+         header("location: /photogram1/");
+     }

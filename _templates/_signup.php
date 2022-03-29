@@ -1,6 +1,5 @@
 <section>
-    <?php
-?>
+
     <div class="card card-wid1 mt-5 " style=margin:auto;>
 
         <div class="card-title m-3">
@@ -15,7 +14,7 @@
                     </label>
                     <div class="col-sm-8 pt-2">
                         <input id=" name" type="text" name="name" class="form-control blur"
-                            placeholder="Enter your FullName:"><span class="error"> <?php echo $_SESSION['nameErr'];?></span>
+                            placeholder="Enter your FullName:"><span class="error"> <?php echo $_SESSION['nameErr']; ?></span>
                     </div>
                 </div>
                 <div class=" p-3 row g-1 ">
@@ -24,7 +23,7 @@
                     </label>
                     <div class="col-sm-8 pt-2">
                         <input id=" name" type="email" name="email" class="form-control blur "
-                            placeholder="abcdefg@example.com"><span class="error"> <?php echo $_SESSION['emailErr'];?></span>
+                            placeholder="abcdefg@example.com"><span class="error"> <?php echo $_SESSION['emailErr']; ?></span>
                     </div>
                 </div>
                 <div class=" p-3 row g-2 ">
@@ -33,7 +32,7 @@
                     </label>
                     <div class="col-sm-8 pt-2">
                         <input id=" phone" type="tel" name="phone" class="form-control blur"
-                            placeholder="phone Number"><span class="error"> <?php echo $_SESSION['phoneErr'];?></span>
+                            placeholder="phone Number"><span class="error"> <?php echo $_SESSION['phoneErr']; ?></span>
                     </div>
                 </div>
                 <div class=" p-3 row g-2 ">
@@ -44,14 +43,11 @@
                     <div class="col-sm-8 pt-2">
                         <input id=" passwd" type="password" name="password" class="form-control blur"
                             placeholder="Enter your password"><span class="error">
-                            <?php if (empty($_POST['password'])) {
-    echo $_SESSION['passErr'];
-}
- 
-                                 if (strlen($_POST['password']<8)) {
-                                     echo $_SESSION['lenofpassword'];
-                                 }
-                             ?>
+                            <?php
+                                    echo $_SESSION['passErr'];
+                                    //echo $_SESSION['passcheckErr'];
+                                      echo $_SESSION['lengthErr'];
+                                ?>
                         </span>
                     </div>
                 </div>
@@ -63,7 +59,8 @@
                         <input id=" passwd1" type="password" name="retype" class="form-control blur"
                             placeholder="Re-type your password"><span class="error">
                             <?php echo $_SESSION['passErr'];
-                             echo $_SESSION['lenofpassword'];
+                            // echo $_SESSION['passcheckErr'];
+                                 echo $_SESSION['lengthErr'];
                                      
                             ?>
                         </span>
@@ -80,3 +77,6 @@
 
 
 </section>
+
+
+<?php  session_destroy();

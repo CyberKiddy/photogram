@@ -13,7 +13,7 @@ class db_connecten
             $servername = "mysql.selfmade.ninja";
             $username = "photogram_";
             $password1 = "bluethrottler";
-            $dbname= "photogram__signup_auth";
+            $dbname= "photogram__signup";
 
             // Create connection
             $connection = new mysqli($servername, $username, $password1, $dbname);

@@ -1,4 +1,5 @@
 <pre><?php
+session_start();
 //include_once "/libs/classes/database.class.php";
 function load_template($temp)
 {

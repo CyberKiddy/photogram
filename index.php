@@ -1,5 +1,5 @@
 <?php
-session_start();?>
+?>
 <!DOCTYPE html>
 
 <html>
@@ -7,6 +7,7 @@ session_start();?>
 <head>
     <?php include "_load.php";?>
     <?php include "validation.php";
+    include_once "formValidation.php";
   //  include "/libs/classes/database.class.php";?>
 
 
@@ -23,4 +24,4 @@ session_start();?>
 </body>
 
 </html>
-<?php session_destroy();
+<?php
