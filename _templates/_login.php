@@ -5,11 +5,11 @@
             <h3 class="">Have an Account ?</h3>
         </div>
         <div class="d-flex card-body justify-content-center">
-            <form action="" method="POST">
+            <form action="libs/classes/loginauth.class.php" method="POST">
                 <div class=" p-3 row g-2 ">
                     <label for="email" class=" visually-hidden">Name:</label>
                     <div class="col-sm-12">
-                        <input type="email" id=" email" name="name" class="form-control-lg blur "
+                        <input type="email" id=" email" name="email" class="form-control-lg blur "
                             placeholder="abcdefg@example.com">
                     </div>
                 </div>

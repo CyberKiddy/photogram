@@ -34,14 +34,15 @@ class user
             return false;
         }
     }
-    public static function check_already_signup($email)
+    public static function check_already_signup($name, $email, $phonenumber, $password)
     {
         $query ="SELECT * FROM `signupauth` WHERE `email` = '$email'";
         $conn = db_connecten::db_connection_check();
         $result = $conn->query($query);
         if ($result->num_rows ==1) {
-            $already_user= "Already a user";
-            return $already_user;
+            echo  $_SESSION['already']= "Already a user";
+        }
+        if ($result->num_rows==0) {
         }
     }
 }

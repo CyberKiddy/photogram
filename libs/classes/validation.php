@@ -28,19 +28,22 @@ $signup_validation->check_password_len($_POST['password']);
      if (empty($_SESSION['nameErr'])and empty($_SESSION['emailErr'])and empty($_SESSION['phoneErr'])
     and empty($_SESSION['passErr'])and empty($_SESSION['lengthErr'])) {
          //check if already a user
-         $check=false;
+         //$check=false;
 
-         if ($check==false) {
-             $result=user::check_already_signup($email);
-             print($result);
-             $check=true;
-         }
-
-         if ($check==false) {
+         
+         //user::check_already_signup($name, $email, $phone, $pass);
+         //  if (strlen(($_SESSION['already']))>1) {
+         //      echo  $_SESSION['already'];
+        
+         // $check=true;
+         // }
+           // if (strlen(($_SESSION['already']))==0) {
+               
              user::add_information($name, $email, $phone, $pass)?>
 <h3>Signup succcess . Now you can <a href="/photogram1/login.php">Login here</a></h3>
+
 <?php
-         }
+        // }
      } else {
          header("location: /photogram1/");
      }
