@@ -17,11 +17,11 @@ class user
         }
         return $error;
     }
-    public static function login($user, $password)
+    public static function login($email, $password)
     {
         $password = md5(strrev(md5($password)));
-        $query = "SELECT * FROM `signupauth` WHERE `username` = '$user'";
-        $conn = Database::getConnection();
+        $query = "SELECT * FROM `signupauth` WHERE `email` = '$email'";
+        $conn = db_connecten::db_connection_check();
         $result = $conn->query($query);
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();

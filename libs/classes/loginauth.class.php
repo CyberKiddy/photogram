@@ -2,7 +2,7 @@
 
 use LDAP\Result;
 
-session_start();
+// session_start();
 include "require.class.php";
 include "user.class.php";
 
@@ -12,4 +12,7 @@ $pass=$_POST['password'];
 
 if (isset($email) and isset($pass)) {
     $result=user::login($email, $pass);
+    if ($result) {
+        echo 'Login Success';
+    }
 }

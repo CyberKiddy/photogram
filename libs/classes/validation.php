@@ -19,7 +19,7 @@ $check_signup=false;
 $signup_validation->check_name($_POST['name']);
 $signup_validation->check_email($_POST['email']);
 $signup_validation->check_phone($_POST['phone']);
-$signup_validation->check_password_len($_POST['password']);
+$signup_validation->check_password_len($_POST['password'], $_POST['retype']);
 
 
 

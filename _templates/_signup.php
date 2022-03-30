@@ -45,7 +45,7 @@
                             placeholder="Enter your password"><span class="error">
                             <?php
                                     echo $_SESSION['passErr'];
-                                    //echo $_SESSION['passcheckErr'];
+                                    echo $_SESSION['passcheckErr'];
                                       echo $_SESSION['lengthErr'];
                                 ?>
                         </span>
@@ -59,7 +59,7 @@
                         <input id=" passwd1" type="password" name="retype" class="form-control blur"
                             placeholder="Re-type your password"><span class="error">
                             <?php echo $_SESSION['passErr'];
-                            // echo $_SESSION['passcheckErr'];
+                             echo $_SESSION['passcheckErr'];
                                  echo $_SESSION['lengthErr'];
                                      
                             ?>
